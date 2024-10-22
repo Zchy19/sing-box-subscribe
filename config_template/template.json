@@ -66,9 +66,9 @@
             ],
             "filter": [
                 {
-                    "action": "exclude",
+                    "action": "include",
                     "keywords": [
-                        "官网|网站|剩余|流量|过期|时间|期|地址"
+                        "香港|日本|台湾|新加坡|韩国"
                     ]
                 }
             ]
@@ -81,9 +81,9 @@
             ],
             "filter": [
                 {
-                    "action": "exclude",
+                    "action": "include",
                     "keywords": [
-                        "官网|网站|剩余|流量|过期|时间|期|地址"
+                        "香港|日本|台湾|新加坡|韩国"
                     ]
                 }
             ]
@@ -96,9 +96,9 @@
             ],
             "filter": [
                 {
-                    "action": "exclude",
+                    "action": "include",
                     "keywords": [
-                        "官网|网站|剩余|流量|过期|时间|期|地址"
+                        "香港|日本|台湾|新加坡|韩国"
                     ]
                 }
             ]
