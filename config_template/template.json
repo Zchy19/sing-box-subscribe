@@ -62,174 +62,46 @@
             "type": "urltest",
             "tag": "自动选择",
             "outbounds": [
-                "🇭🇰 香港 01",
-                "🇭🇰 香港 02",
-                "🇭🇰 香港 03",
-                "🇭🇰 香港 04",
-                "🇭🇰 香港 05",
-                "🇯🇵 日本 01",
-                "🇯🇵 日本 02",
-                "🇯🇵 日本 03",
-                "🇹🇼 🇨🇳 台湾 01",
-                "🇹🇼 🇨🇳 台湾 02",
-                "🇹🇼 🇨🇳 台湾 03",
-                "🇸🇬 新加坡 01",
-                "🇸🇬 新加坡 02",
-                "🇸🇬 新加坡 03"
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "官网|网站|剩余|流量|过期|时间|期|地址"
+                    ]
+                }
             ]
         },
         {
             "type": "selector",
             "tag": "手动选择",
             "outbounds": [
-                "🇭🇰 香港 01",
-                "🇭🇰 香港 02",
-                "🇭🇰 香港 03",
-                "🇭🇰 香港 04",
-                "🇭🇰 香港 05",
-                "🇯🇵 日本 01",
-                "🇯🇵 日本 02",
-                "🇯🇵 日本 03",
-                "🇹🇼 🇨🇳 台湾 01",
-                "🇹🇼 🇨🇳 台湾 02",
-                "🇹🇼 🇨🇳 台湾 03",
-                "🇸🇬 新加坡 01",
-                "🇸🇬 新加坡 02",
-                "🇸🇬 新加坡 03"
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "官网|网站|剩余|流量|过期|时间|期|地址"
+                    ]
+                }
             ]
         },
         {
             "type": "selector",
             "tag": "GLOBAL",
             "outbounds": [
-                "direct-out",
-                "🇭🇰 香港 01",
-                "🇭🇰 香港 02",
-                "🇭🇰 香港 03",
-                "🇭🇰 香港 04",
-                "🇭🇰 香港 05",
-                "🇯🇵 日本 01",
-                "🇯🇵 日本 02",
-                "🇯🇵 日本 03",
-                "🇹🇼 🇨🇳 台湾 01",
-                "🇹🇼 🇨🇳 台湾 02",
-                "🇹🇼 🇨🇳 台湾 03",
-                "🇸🇬 新加坡 01",
-                "🇸🇬 新加坡 02",
-                "🇸🇬 新加坡 03"
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "exclude",
+                    "keywords": [
+                        "官网|网站|剩余|流量|过期|时间|期|地址"
+                    ]
+                }
             ]
-        },
-        {
-            "tag": "🇭🇰 香港 01",
-            "type": "shadowsocks",
-            "server": "zhk1.capoonetwork.com",
-            "server_port": 12710,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇭🇰 香港 02",
-            "type": "shadowsocks",
-            "server": "zhk2.capoonetwork.com",
-            "server_port": 12720,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇭🇰 香港 03",
-            "type": "shadowsocks",
-            "server": "zhk3.capoonetwork.com",
-            "server_port": 16249,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇭🇰 香港 04",
-            "type": "shadowsocks",
-            "server": "zhk4.capoonetwork.com",
-            "server_port": 31431,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇭🇰 香港 05",
-            "type": "shadowsocks",
-            "server": "zhk5.capoonetwork.com",
-            "server_port": 27885,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇯🇵 日本 01",
-            "type": "shadowsocks",
-            "server": "zjp1.capoonetwork.com",
-            "server_port": 13484,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇯🇵 日本 02",
-            "type": "shadowsocks",
-            "server": "zjp2.capoonetwork.com",
-            "server_port": 21485,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇯🇵 日本 03",
-            "type": "shadowsocks",
-            "server": "zjp3.capoonetwork.com",
-            "server_port": 32432,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇹🇼 🇨🇳 台湾 01",
-            "type": "shadowsocks",
-            "server": "ztw1.capoonetwork.com",
-            "server_port": 32067,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇹🇼 🇨🇳 台湾 02",
-            "type": "shadowsocks",
-            "server": "ztw2.capoonetwork.com",
-            "server_port": 16263,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇹🇼 🇨🇳 台湾 03",
-            "type": "shadowsocks",
-            "server": "ztw3.capoonetwork.com",
-            "server_port": 18241,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇸🇬 新加坡 01",
-            "type": "shadowsocks",
-            "server": "zsg1.capoonetwork.com",
-            "server_port": 28415,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇸🇬 新加坡 02",
-            "type": "shadowsocks",
-            "server": "zsg2.capoonetwork.com",
-            "server_port": 23571,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
-        },
-        {
-            "tag": "🇸🇬 新加坡 03",
-            "type": "shadowsocks",
-            "server": "zsg3.capoonetwork.com",
-            "server_port": 25227,
-            "method": "aes-256-gcm",
-            "password": "420c29d9-e7c7-4387-a028-6e959b0761aa"
         }
     ],
     "route": {
