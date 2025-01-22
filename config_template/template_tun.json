@@ -1,0 +1,156 @@
+{
+    "dns": {
+        "servers": [
+            {
+                "tag": "default-dns",
+                "address": "223.5.5.5",
+                "detour": "direct-out"
+            },
+            {
+                "tag": "google",
+                "address": "https://dns.google/dns-query",
+                "address_resolver": "default-dns",
+                "address_strategy": "ipv4_only",
+                "strategy": "ipv4_only",
+                "client_subnet": "1.0.1.0"
+            }
+        ],
+        "rules": [
+            {
+                "outbound": "any",
+                "server": "default-dns"
+            },
+            {
+                "clash_mode": "global",
+                "server": "google"
+            },
+            {
+                "rule_set": "cnsite",
+                "server": "default-dns"
+            }
+        ],
+        "strategy": "ipv4_only",
+        "disable_cache": false,
+        "disable_expire": false,
+        "independent_cache": false,
+        "final": "google"
+    },
+    "inbounds": [
+        {
+            "type": "tun",
+            "tag": "tun-in",
+            "interface_name": "utun0",
+            "inet4_address": "172.30.0.1/30",
+            "inet6_address": "fdfe:dcba:9876::1/126",
+            "mtu": 9000,
+            "auto_route": true,
+            "strict_route": true,
+            "sniff": true,
+            "stack": "system"
+        }
+    ],
+    "outbounds": [
+        {
+            "type": "direct",
+            "tag": "direct-out"
+        },
+        {
+            "type": "dns",
+            "tag": "dns-out"
+        },
+        {
+            "type": "urltest",
+            "tag": "自动选择",
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "香港|日本|台湾|新加坡|韩国"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "手动选择",
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "香港|日本|台湾|新加坡|韩国"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "GLOBAL",
+            "outbounds": [
+                "{all}"
+            ],
+            "filter": [
+                {
+                    "action": "include",
+                    "keywords": [
+                        "香港|日本|台湾|新加坡|韩国"
+                    ]
+                }
+            ]
+        }
+    ],
+    "route": {
+        "rules": [
+            {
+                "inbound": "dns-in",
+                "outbound": "dns-out"
+            },
+            {
+                "protocol": "dns",
+                "outbound": "dns-out"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "direct-out"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "GLOBAL"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct-out"
+            },
+            {
+                "rule_set": [
+                    "cnip",
+                    "cnsite"
+                ],
+                "outbound": "direct-out"
+            }
+        ],
+        "rule_set": [
+            {
+                "type": "remote",
+                "tag": "cnip",
+                "format": "binary",
+                "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geoip/cn.srs",
+                "download_detour": "自动选择"
+            },
+            {
+                "type": "remote",
+                "tag": "cnsite",
+                "format": "binary",
+                "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geosite/cn.srs",
+                "download_detour": "自动选择"
+            }
+        ],
+        "auto_detect_interface": true,
+        "final": "手动选择"
+    }
+}

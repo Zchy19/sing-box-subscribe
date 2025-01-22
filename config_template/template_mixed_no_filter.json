@@ -1,0 +1,129 @@
+{
+    "dns": {
+        "servers": [
+            {
+                "tag": "default-dns",
+                "address": "223.5.5.5",
+                "detour": "direct-out"
+            },
+            {
+                "tag": "google",
+                "address": "https://dns.google/dns-query",
+                "address_resolver": "default-dns",
+                "address_strategy": "ipv4_only",
+                "strategy": "ipv4_only",
+                "client_subnet": "1.0.1.0"
+            }
+        ],
+        "rules": [
+            {
+                "outbound": "any",
+                "server": "default-dns"
+            },
+            {
+                "clash_mode": "global",
+                "server": "google"
+            },
+            {
+                "rule_set": "cnsite",
+                "server": "default-dns"
+            }
+        ],
+        "strategy": "ipv4_only",
+        "disable_cache": false,
+        "disable_expire": false,
+        "independent_cache": false,
+        "final": "google"
+    },
+    "inbounds": [
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "::",
+            "listen_port": 5330,
+            "sniff": true,
+            "sniff_override_destination": false,
+            "set_system_proxy": false
+          }
+    ],
+    "outbounds": [
+        {
+            "type": "direct",
+            "tag": "direct-out"
+        },
+        {
+            "type": "dns",
+            "tag": "dns-out"
+        },
+        {
+            "type": "urltest",
+            "tag": "自动选择",
+            "outbounds": [
+                "{all}"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "手动选择",
+            "outbounds": [
+                "{all}"
+            ]
+        },
+        {
+            "type": "selector",
+            "tag": "GLOBAL",
+            "outbounds": [
+                "{all}"
+            ]
+        }
+    ],
+    "route": {
+        "rules": [
+            {
+                "inbound": "dns-in",
+                "outbound": "dns-out"
+            },
+            {
+                "protocol": "dns",
+                "outbound": "dns-out"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "direct-out"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "GLOBAL"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct-out"
+            },
+            {
+                "rule_set": [
+                    "cnip",
+                    "cnsite"
+                ],
+                "outbound": "direct-out"
+            }
+        ],
+        "rule_set": [
+            {
+                "type": "remote",
+                "tag": "cnip",
+                "format": "binary",
+                "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geoip/cn.srs",
+                "download_detour": "自动选择"
+            },
+            {
+                "type": "remote",
+                "tag": "cnsite",
+                "format": "binary",
+                "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geosite/cn.srs",
+                "download_detour": "自动选择"
+            }
+        ],
+        "auto_detect_interface": true,
+        "final": "手动选择"
+    }
+}
